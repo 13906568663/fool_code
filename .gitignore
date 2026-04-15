@@ -1,0 +1,15 @@
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+*.egg-info/
+dist/
+build/
+FoolCode/
+FoolCode.exe
+*.spec
+.fool-code/
+.claw/
+.env
+desktop-ui/node_modules/
+**/target/

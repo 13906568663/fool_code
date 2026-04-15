@@ -1,0 +1,242 @@
+﻿@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html,
+  body,
+  #root {
+    height: 100%;
+  }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+      "PingFang SC", "Noto Sans SC", sans-serif;
+    background: #f5f7fb;
+    color: #0f172a;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  button,
+  input,
+  textarea,
+  select {
+    font: inherit;
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #c4c9d4;
+    border-radius: 999px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #a0a8b8;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes bounce {
+  to {
+    transform: translateY(-6px);
+    opacity: 0.4;
+  }
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.2s ease;
+}
+
+.typing-dot {
+  animation: bounce 0.6s infinite alternate;
+}
+
+.typing-dot:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.typing-dot:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+.cursor-blink {
+  animation: blink 1s infinite;
+}
+
+/* ---- Tool Block Animations ---- */
+
+@keyframes tool-shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(200%); }
+}
+
+.tool-shimmer-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  overflow: hidden;
+}
+
+.tool-shimmer-bar::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  width: 50%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    var(--shimmer-color, #4C84FF) 50%,
+    transparent 100%
+  );
+  animation: tool-shimmer 1.4s ease-in-out infinite;
+}
+
+@keyframes tool-progress {
+  0% { width: 15%; margin-left: 0%; }
+  50% { width: 35%; margin-left: 35%; }
+  100% { width: 15%; margin-left: 85%; }
+}
+
+.tool-progress-bar {
+  animation: tool-progress 1.6s ease-in-out infinite;
+}
+
+@keyframes tool-expand {
+  from {
+    opacity: 0;
+    max-height: 0;
+  }
+  to {
+    opacity: 1;
+    max-height: 600px;
+  }
+}
+
+.animate-tool-expand {
+  animation: tool-expand 0.2s ease-out;
+}
+
+.tool-block {
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04);
+  transition: box-shadow 0.15s ease, border-color 0.15s ease;
+}
+
+.tool-block:hover {
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.07);
+}
+
+.tool-output-terminal::-webkit-scrollbar-thumb {
+  background: #334155;
+}
+
+.tool-output-terminal::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* ---- Sidebar Premium Styles ---- */
+
+.sidebar-root {
+  background: linear-gradient(180deg, #FFFFFF 0%, #F8FAFF 100%);
+  box-shadow:
+    0 1px 2px rgba(15, 23, 42, 0.04),
+    0 8px 32px rgba(15, 23, 42, 0.06);
+}
+
+.sidebar-header-glow {
+  position: absolute;
+  top: -40px;
+  right: -30px;
+  width: 120px;
+  height: 120px;
+  border-radius: 9999px;
+  background: radial-gradient(circle, rgba(76, 132, 255, 0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.sidebar-new-btn {
+  background: linear-gradient(135deg, #4C84FF 0%, #6B9AFF 100%);
+  box-shadow: 0 2px 8px rgba(76, 132, 255, 0.3);
+}
+
+.sidebar-new-btn:hover:not(:disabled) {
+  background: linear-gradient(135deg, #3F76EE 0%, #5A8BF5 100%);
+  box-shadow: 0 4px 14px rgba(76, 132, 255, 0.4);
+  transform: translateY(-1px);
+}
+
+.sidebar-session-active {
+  background: linear-gradient(135deg, rgba(76, 132, 255, 0.08) 0%, rgba(76, 132, 255, 0.04) 100%);
+  box-shadow: inset 3px 0 0 0 #4C84FF;
+}
+
+.sidebar-list::-webkit-scrollbar {
+  width: 4px;
+}
+
+.sidebar-list::-webkit-scrollbar-thumb {
+  background: #D5DAE3;
+  border-radius: 999px;
+}
+
+.sidebar-list::-webkit-scrollbar-thumb:hover {
+  background: #B0B8C7;
+}
+
+.sidebar-session-btn {
+  position: relative;
+}
+
+.sidebar-session-btn::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 3px;
+  height: 0;
+  border-radius: 0 2px 2px 0;
+  background: #4C84FF;
+  transform: translateY(-50%);
+  transition: height 0.15s ease;
+}
+
+.sidebar-session-btn:hover::before {
+  height: 16px;
+}
+
+.sidebar-session-active::before {
+  height: 60% !important;
+  opacity: 1;
+}
