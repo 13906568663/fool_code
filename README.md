@@ -83,8 +83,7 @@ fool-code-python/
 ├─ tests/                    # 测试用例
 ├─ run.py                    # 启动桌面模式
 ├─ start.py                  # 启动开发模式（浏览器）
-├─ pyproject.toml            # Python 项目配置
-└─ FOOL_CODE.md              # 更详细的技术说明文档
+└─ pyproject.toml            # Python 项目配置
 ```
 
 ---

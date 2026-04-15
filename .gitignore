@@ -13,3 +13,7 @@ FoolCode.exe
 .env
 desktop-ui/node_modules/
 **/target/
+*.pyd
+*.pdb
+*.tsbuildinfo
+.pytest_cache/
